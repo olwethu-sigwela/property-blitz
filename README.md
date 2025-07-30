@@ -4,4 +4,4 @@ This is a property listing application that I developed with ASP.NET using C# an
 
 ![Landing page](demo-images/1.png)
 ![Listings page](demo-images/2.png)
-![Details page](demo-images/3.png)
+

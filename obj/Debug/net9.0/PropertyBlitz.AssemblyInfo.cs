@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PropertyBlitz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55599399b9f19abdd1c4f6bc7aaae66d4b0fba1c")]
 [assembly: System.Reflection.AssemblyProductAttribute("PropertyBlitz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PropertyBlitz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
