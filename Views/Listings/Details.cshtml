@@ -1,0 +1,108 @@
+﻿@model Listing
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+    .details-image-container {
+        width: 100%;
+        max-width: 700px;
+        margin: 2rem auto 0 auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        background: #fff;
+    }
+    .details-image {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        display: block;
+    }
+    .details-card-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+    }
+    .listing-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        max-width: 700px;
+        width: 100%;
+        padding: 2rem 2rem 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .listing-price {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+    }
+    .listing-location {
+        font-size: 1.2rem;
+        color: #34495e;
+        margin-bottom: 0.5rem;
+    }
+    .listing-details {
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+    }
+    .listing-address {
+        font-size: 1rem;
+        color: #95a5a6;
+        margin-bottom: 1rem;
+    }
+    .listing-description {
+        color: #444;
+        margin-bottom: 1.2rem;
+    }
+    .listing-actions {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    .page-title {
+        color: #2c3e50;
+        margin-bottom: 2rem;
+        font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+        text-align: center;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+</style>
+
+<h1 class="page-title">@ViewData["Title"]</h1>
+
+<div class="details-image-container">
+    <img src="@Model.ImageURL" alt="Property Image" class="details-image" />
+</div>
+
+<div class="details-card-container">
+    <div class="listing-card">
+        <div class="listing-price">R @Model.Price.ToString("N0")</div>
+        <div class="listing-location">@Model.Location</div>
+        <div class="listing-details">
+            <i class="fas fa-bed"></i> @Model.NumBedrooms Bedrooms
+        </div>
+        <div class="listing-address">@Model.Address</div>
+        <div class="listing-description">@Model.Description</div>
+        <div class="listing-actions">
+            @* <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-primary btn-sm">
+                <i class="fas fa-edit"></i> Edit
+            </a> *@
+            <a asp-action="Index" class="btn btn-outline-secondary btn-sm">
+                <i class="fas fa-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>

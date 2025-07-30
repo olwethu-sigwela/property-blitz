@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PropertyBlitz</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PropertyBlitz.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            min-height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .site-wrapper {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar-blitz {
+            background: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 4px 16px rgba(44,62,80,0.10);
+            padding: 0.5rem 0;
+        }
+        .navbar-blitz .navbar-brand {
+            font-weight: 700;
+            font-size: 1.7rem;
+            color: #fff !important;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 6px rgba(44,62,80,0.10);
+        }
+        .navbar-blitz .nav-link {
+            color: #ecf0f1 !important;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-right: 1rem;
+            border-radius: 24px;
+            transition: background 0.2s, color 0.2s;
+            padding: 0.5rem 1.2rem;
+        }
+        .navbar-blitz .nav-link:hover, .navbar-blitz .nav-link.active {
+            background: #fff;
+            color: #3498db !important;
+            text-decoration: none;
+        }
+        .navbar-blitz .navbar-toggler {
+            border: none;
+        }
+        .navbar-blitz .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(52,152,219,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .footer-blitz {
+            background: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
+            color: #fff;
+            border-radius: 18px 18px 0 0;
+            box-shadow: 0 -2px 16px rgba(44,62,80,0.10);
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+            padding-bottom: 0;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+            padding-bottom: 1.2rem;
+            text-align: center;
+        }
+        .footer-brand {
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #ffe082;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .footer-social a {
+            color: #ecf0f1;
+            font-size: 1.3rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .footer-social a:hover {
+            color: #ffe082;
+            transform: scale(1.2) rotate(-10deg);
+        }
+        .footer-bottom {
+            text-align: center;
+            font-size: 1rem;
+            color: #d0d6db;
+            padding: 1rem 0 0.5rem 0;
+            border-top: 1px solid rgba(236, 240, 241, 0.15);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-blitz mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fas fa-bolt"></i> Property Blitz
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <i class="fas fa-home"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Listings" ? "active" : "")" href="@Url.Action("Index", "Listings")">
+                                    <i class="fas fa-building"></i> Browse Properties
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container flex-grow-1 d-flex flex-column">
+            <main role="main" class="pb-3 flex-grow-1 d-flex flex-column">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer-blitz mt-5">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-bolt"></i> <span>Property Blitz</span>
+            </div>
+            <div class="footer-links">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <a href="@Url.Action("Index", "Listings")">Browse Properties</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Property Blitz &mdash; Your Gateway to Johannesburg Real Estate
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
